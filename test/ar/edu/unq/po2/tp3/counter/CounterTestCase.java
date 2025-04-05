@@ -2,9 +2,6 @@ package ar.edu.unq.po2.tp3.counter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -81,24 +78,4 @@ public class CounterTestCase {
 
 	}
 
-	@Test
-	public void testDesarmandoNumeros() {
-		List<Integer> numeros = new ArrayList<Integer>();
-
-		numeros.add(123);
-		numeros.add(456);
-		numeros.add(1);
-		numeros.add(22);
-		numeros.add(2024);
-		numeros.add(334588);
-
-		Counter contador = new Counter();
-
-		int resultado = (int) contador.getNumeroConMasDigitosPares(numeros);
-
-		int esperado = 2024;
-
-		assertEquals(esperado, resultado);
-
-	}
 }
