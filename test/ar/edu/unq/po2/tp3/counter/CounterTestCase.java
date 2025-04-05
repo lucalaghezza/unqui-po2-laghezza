@@ -1,6 +1,10 @@
 package ar.edu.unq.po2.tp3.counter;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -40,7 +44,7 @@ public class CounterTestCase {
 		assertEquals(amount, 9);
 
 	}
-	
+
 	/**
 	 * Verifica la cantidad de pares
 	 */
@@ -52,7 +56,7 @@ public class CounterTestCase {
 		assertEquals(amount, 1);
 
 	}
-	
+
 	/**
 	 * Verifica la cantidad de multiplos de 1
 	 */
@@ -64,7 +68,7 @@ public class CounterTestCase {
 		assertEquals(amount, 10);
 
 	}
-	
+
 	/**
 	 * Verifica la cantidad de multiplos de 3
 	 */
@@ -74,6 +78,27 @@ public class CounterTestCase {
 		int amount = counter.cantidadDeMultiplos(3);
 // I check the amount is the expected one
 		assertEquals(amount, 2);
+
+	}
+
+	@Test
+	public void testDesarmandoNumeros() {
+		List<Integer> numeros = new ArrayList<Integer>();
+
+		numeros.add(123);
+		numeros.add(456);
+		numeros.add(1);
+		numeros.add(22);
+		numeros.add(2024);
+		numeros.add(334588);
+
+		Counter contador = new Counter();
+
+		int resultado = (int) contador.getNumeroConMasDigitosPares(numeros);
+
+		int esperado = 2024;
+
+		assertEquals(esperado, resultado);
 
 	}
 }
