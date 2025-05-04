@@ -18,4 +18,23 @@ public class ProductoPrimeraNecesidadTest {
 	public void testCalcularPrecio() {
 		assertEquals(new Double(7.2), leche.getPrecio());
 	}
+	
+	@Test
+	public void testNuevoProductoDistintoDescuentoPrecio() throws Exception {
+		ProductoPrimeraNecesidad arroz = new ProductoPrimeraNecesidad("arroz", 10d, false, 5d);
+		assertEquals(new Double(9.5), arroz.getPrecio());
+		
+	}
+	
+	@Test
+	public void testNuevoProductoDistintoDescuentoMayorPorcentaje() throws Exception {
+		Exception except = assertThrows(Exception.class,() -> new ProductoPrimeraNecesidad("pila", 10d, false, 101d));
+		assertEquals("el porcentaje debe ser entre 0 y 100", except.getMessage());
+	}
+	
+	@Test
+	public void testNuevoProductoDistintoDescuentoMenorPorcentaje() throws Exception {
+		Exception except = assertThrows(Exception.class,() -> new ProductoPrimeraNecesidad("pila", 10d, false, -1d));
+		assertEquals("el porcentaje debe ser entre 0 y 100", except.getMessage());
+	}
 }
